@@ -1,0 +1,213 @@
+@import 'variables';
+
+//Card List
+.card-list-container{
+  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+// Profile card
+.dwa-card-container{
+  height: 200px;
+  flex-basis: 200px;
+  margin-right: .2rem;
+  margin-bottom: .8rem;
+  @media screen and(max-width: 480px){
+    flex-basis: 170px;
+  }
+  @media screen and(max-width: 405px){
+    margin: 0 auto .8rem auto;
+    flex-basis: 150px;
+
+  }
+  .dwa-card-profile{
+    height: 75%;
+    border-radius: .5rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .dwa-card-content{
+    height: 25%;
+    background: #da0477;
+    border-radius: .5rem;
+    color: $omega;
+    margin-top: .1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: .5rem;
+
+
+    h3{
+      font-size: .8rem;
+    }
+    .dwa-card-contents{
+      font-size: .7rem;
+    }
+  }
+}
+
+// Banner card
+
+.dwa-banner-container {
+  width: 100%;
+  height: 300px;
+  position: relative;
+  margin-top: -1rem;
+  background-image: url('../../assets/images/bg.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: -15rem;
+  @media screen and(max-width: 960px){
+    background-position-y: -8rem;
+  }
+  @media screen and(max-width: 760px){
+    background-position-y: -3rem;
+  }
+  @media screen and(max-width: 480px){
+    background-position-y: -1rem;
+  }
+
+  /* Apply the blur effect */
+  backdrop-filter: blur(8px);
+
+  /* Create an overlay with the desired background color and gradient */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)),
+    rgba(218, 4, 119, 0.5); /* Adjust the color and transparency as needed */
+    z-index: -1;
+  }
+}
+
+//user card
+
+.user-card-container{
+  width: 300px;
+  height: 400px;
+  background: red;
+  margin-top: -4rem;
+  position: relative;
+  border-radius: 3rem 0 3rem 0;
+  @media screen and(max-width: 960px){
+    width: 260px;
+    height: 300px;
+  }
+
+  @media screen and(max-width: 600px){
+    width: 100%;
+    height: 300px;
+  }
+}
+
+// User content card
+
+.dwa-user-content-card{
+  width: 60%;
+  margin: 0 auto;
+  padding: 1rem .5rem;
+  position: relative;
+
+  .dwa-user-name{
+    color: $omega;
+    text-transform: capitalize;
+  }
+  .dwa-user-content-container{
+    display: grid;
+    margin-top: 1.5rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 25px;
+    @media screen and(max-width: 650px) {
+      grid-column-gap: 5px;
+    }
+    .dwa-user-content-text{
+      text-align: center;
+      background: deeppink;
+      padding: 1rem .5rem;
+      border-radius: .5rem;
+
+      .dwa-icon{
+        font-size: 1.5rem;
+        color: $omega;
+      }
+      .dwa-text-title{
+        color: white;
+        font-weight: bold;
+        font-size: .8rem;
+      }
+
+      .dwa-text-sub{
+        color: #353333;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: .9rem;
+        padding-top: .3rem;
+      }
+    }
+  }
+
+
+  .dwa-user-name::before{
+    content: '';
+    position: absolute;
+    top: 10px;
+    width: 60px;
+    height: 2px;
+    background: #da0477;
+  }
+
+  @media screen and (max-width: 600px){
+    margin-top: 1rem;
+    width: 100%;
+  }
+}
+
+//Favourite card
+
+.dwa-fav-card-container {
+  width: 100px;
+  height: 100px;
+  background: yellow;
+  border-radius: .5rem;
+  margin-top: 1.2rem;
+  display: flex;
+  flex-direction: column;
+
+  .dwa-fav-inner-bottom {
+    color: black;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background: rgba(0,0,0,.5);
+    width: 100%;
+    margin-top: auto;
+    border-radius: 0 0 .5rem .5rem;
+    display: flex; /* Add flex display */
+    align-items: center; /* Vertically center the content */
+    position: relative;
+
+    .icon {
+      color: red;
+      font-size: 1.2rem;
+      position: absolute; /* Position the text absolutely */
+      top: 50%; /* Move the text to the middle vertically */
+      left: 20%; /* Move the text to the middle horizontally */
+      transform: translate(-20%, -50%); /* Center the text precisely */
+    }
+
+      .text {
+        font-size: .8rem;
+        position: absolute; /* Position the text absolutely */
+        top: 50%; /* Move the text to the middle vertically */
+        left: 60%; /* Move the text to the middle horizontally */
+        transform: translate(-50%, -53%); /* Center the text precisely */
+    }
+  }
+}

@@ -1,0 +1,36 @@
+@import 'header';
+@import 'variables';
+@import 'cards';
+@import 'sections';
+
+body{
+  background: black;
+}
+.dwa-container{
+  width: 85%;
+  margin: 0 auto;
+}
+
+//user profile page
+
+.dwa-user-profile-page{
+  display: flex;
+
+  @media screen and (max-width: 600px){
+    flex-direction: column;
+  }
+
+}
+
+
+//reset
+
+p,
+h1
+,h2
+,h3
+,h4
+,h5
+,h6{
+  margin: 0;
+}
