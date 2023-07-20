@@ -1,5 +1,6 @@
-const API_URL = {
-    baseurl: 'https://fa.bdtechnologies.ch/api/v1'
+const config = {
+    baseurl: 'https://fa.bdtechnologies.ch/api/v1',
+    loggedInUser: '123456'
 }
 
-export default API_URL
+export default config

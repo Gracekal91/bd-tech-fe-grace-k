@@ -14,12 +14,14 @@
 
   .dwa-right-side{
     background: #da0477;
-    width: 5rem;
+    width: auto;
     text-align: center;
     height: 30px;
     margin-top: 7.5px;
     line-height: 30px;
     border-radius: .3rem;
+    padding: 0 .5rem;
+    color: white;
   }
 
   .dwa-header-content{

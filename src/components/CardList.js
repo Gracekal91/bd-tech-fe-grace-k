@@ -1,24 +1,23 @@
 import React from "react";
 import ProfileCard from "./cards/ProfileCard";
 import useFetchData from "../hooks/useAxios";
-import API_URL from "../config/api";
-import FavouriteCard from "./cards/FavouriteCard";
+import config from "../config/api";
+import {CheckFavorite} from "../utils/loggedInUser";
 
-const CardList = ({ cardType }) => {
-    const { baseurl } = API_URL;
-    const { data, loading, error } = useFetchData(`${baseurl}${cardType?.url}`);
+const CardList = () => {
+    const { baseurl } = config;
+    const { data, loading, error } = useFetchData(`${baseurl}/profiles`);
 
     if (loading) {
         return <div style={{color: 'white'}}>Loading...</div>;
     }
 
-    if (error || !data || !data.data || !data.data.profiles) {
+    if (error || !data || !data.data) {
         return <div>Error loading data.</div>;
     }
 
-    const { profiles, favorites } = data.data;
+    const { profiles } = data.data;
 
-    if (cardType?.type === "overview") {
         if (!profiles || profiles.length === 0) {
             return <div>No profiles available.</div>;
         }
@@ -30,20 +29,6 @@ const CardList = ({ cardType }) => {
                 ))}
             </div>
         );
-    }
-if(cardType?.type === 'favourite') {
-    if (!favorites || !favorites["123456"] || favorites["123456"].length === 0) {
-        return <div>No favorites found.</div>;
-    }
-}
-
-    return (
-        <div className="card-list-container">
-            {favorites["123456"].map((item) => (
-                <FavouriteCard key={item.id} />
-            ))}
-        </div>
-    );
 };
 
 export default CardList;
