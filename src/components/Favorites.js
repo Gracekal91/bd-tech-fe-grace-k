@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import useFetchData from "../hooks/useAxios";
-import API_URL from "../config/api";
+import API_URL from "../config/config";
 import FavouriteCard from "./cards/FavouriteCard";
 import { GetFavoriteProfileData, getFavoritesForTheCurrentUser, DeleteFavorite } from "../utils/loggedInUser";
+import Loader from "./shared/Loader";
 
 
 const Favorites = () => {
@@ -33,7 +34,7 @@ const Favorites = () => {
 
 
     if (loading) {
-        return <div style={{ color: "white" }}>Loading...</div>;
+        return <Loader />
     }
 
     if (error || !favoritesData || !favoritesData.data || !favoritesData.data.favorites) {

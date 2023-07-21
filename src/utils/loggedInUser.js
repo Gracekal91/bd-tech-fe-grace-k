@@ -1,4 +1,4 @@
-import config from "../config/api";
+import config from "../config/config";
 import axios from "axios";
 import {GetFavorite} from "../services/api";
 

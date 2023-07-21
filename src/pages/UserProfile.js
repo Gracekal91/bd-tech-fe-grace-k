@@ -3,7 +3,7 @@ import BannerCard from "../components/cards/BannerCard";
 import UserContentCard from "../components/cards/UserContentCard";
 import FavoriteSection from "../components/section/FavoriteSection";
 import useFetchData from "../hooks/useAxios";
-import config from "../config/api";
+import config from "../config/config";
 import {useParams} from "react-router-dom";
 
 

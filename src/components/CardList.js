@@ -1,16 +1,14 @@
 import React from "react";
 import ProfileCard from "./cards/ProfileCard";
 import useFetchData from "../hooks/useAxios";
-import config from "../config/api";
-import {CheckFavorite} from "../utils/loggedInUser";
+import config from "../config/config";
+import Loader from "./shared/Loader";
 
 const CardList = () => {
-    const { baseurl } = config;
-    const { data, loading, error } = useFetchData(`${baseurl}/profiles`);
+    const { data, loading, error } = useFetchData(`${config.API_BASE_URL}/profiles`);
 
-    if (loading) {
-        return <div style={{color: 'white'}}>Loading...</div>;
-    }
+    if (loading) return <Loader />;
+
 
     if (error || !data || !data.data) {
         return <div>Error loading data.</div>;

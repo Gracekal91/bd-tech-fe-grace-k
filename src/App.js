@@ -4,6 +4,7 @@ import Header from './components/Header'
 import Overview from "./pages/Overview";
 import UserProfile from "./pages/UserProfile";
 import UserAccount from "./pages/UserAccount";
+import Footer from "./components/Footer";
 
 // <div className="dwa-container">
 
@@ -18,6 +19,7 @@ function App() {
                 <Route path="/account" element={<UserAccount />} />
             </Routes>
         </Router>
+        <Footer />
     </div>
   );
 }
