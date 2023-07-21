@@ -1,7 +1,11 @@
 const Footer = () =>{
     return(
         <>
-            <div className="footer"> copyright gk - 2023</div>
+
+            <div className="footer">
+                <hr className="dwa-footer-divider"/>
+                <span> Copyright gk - 2023 </span>
+            </div>
         </>
     )
 }

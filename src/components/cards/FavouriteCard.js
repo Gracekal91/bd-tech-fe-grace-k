@@ -19,7 +19,7 @@ const FavouriteCard = ({item, onRemove}) => {
     };
 
     return(
-        <div className='dwa-fav-card-container' style={backgroundStyle}>
+        <div className='dwa-fav-card-container' style={backgroundStyle} title="click to unlike">
             <div className="dwa-fav-inner-bottom" onClick={handleFavorite}>
                 <span className='text'>Unlike</span>
                 <span className='icon'><AiFillHeart /></span>

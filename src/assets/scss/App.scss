@@ -15,12 +15,41 @@ body{
 
 .dwa-user-profile-page{
   display: flex;
-
+  margin-bottom: 3rem;
   @media screen and (max-width: 600px){
     flex-direction: column;
   }
 
 }
+
+//divider
+.dwa-section-divider {
+  background-color: $primary;
+  height: 1px;
+  border: none;
+  margin: 0 auto;
+  width: 85%;
+}
+
+.dwa-footer-divider {
+  background-color: rgba(255, 20, 147, 0.27);
+  height: 1px;
+  border: none;
+  margin: 0 auto;
+  width: 10%;
+  @media  screen and(max-width: 600px) {
+    width: 25%;
+  }
+}
+
+//Error
+
+.dwa-error{
+  color: red;
+  font-size: .7rem;
+}
+
+//Footer
 
 .footer{
   color: white;
@@ -28,14 +57,14 @@ body{
   width: 100%;
   height: 40px;
   line-height: 40px;
-  background: #140101;
   font-size: .8rem;
+  font-weight: 300;
   margin-top: 2rem;
   position: fixed;
   bottom: 0;
 
   @media screen and(max-width: 600px){
-    position: relative;
+    position: fixed;
   }
 }
 

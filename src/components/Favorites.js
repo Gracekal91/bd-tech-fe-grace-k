@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import useFetchData from "../hooks/useAxios";
-import API_URL from "../config/config";
+import config from "../config/config";
 import FavouriteCard from "./cards/FavouriteCard";
-import { GetFavoriteProfileData, getFavoritesForTheCurrentUser, DeleteFavorite } from "../utils/loggedInUser";
+import { GetFavoriteProfileData, getFavoritesForTheCurrentUser } from "../utils/helper";
 import Loader from "./shared/Loader";
+import Error from "./shared/Error";
 
 
 const Favorites = () => {
-    const { baseurl } = API_URL;
-    const { data: favoritesData, loading, error } = useFetchData(`${baseurl}/favorites`);
+    const { data: favoritesData, loading, error } = useFetchData(`${config.API_BASE_URL}/favorites`);
 
     // State to hold the favorite profiles
     const [favoriteProfiles, setFavoriteProfiles] = useState([]);
@@ -25,7 +25,6 @@ const Favorites = () => {
             const currentUserFavorites = getFavoritesForTheCurrentUser(favorites);
             const profiles = await GetFavoriteProfileData(currentUserFavorites);
 
-
             setFavoriteProfiles(profiles);
         };
 
@@ -33,17 +32,18 @@ const Favorites = () => {
     }, [favoritesData]);
 
 
-    if (loading) {
-        return <Loader />
-    }
+    if (loading) return <Loader />
 
-    if (error || !favoritesData || !favoritesData.data || !favoritesData.data.favorites) {
-        return <div>Error loading data.</div>;
-    }
+    if (error ||
+        !favoritesData ||
+        !favoritesData.data ||
+        !favoritesData.data.favorites
+    ) return <Error msg="Error loading data."/>;
 
-    if (!favoriteProfiles || favoriteProfiles.length === 0) {
-        return <div>No favorites found.</div>;
-    }
+
+    if (!favoriteProfiles ||
+        favoriteProfiles.length === 0
+    ) return <Error msg=" You haven't liked any profile yet" />
 
     const handleRemoveFavorite = (id) =>{
         const updatedList = favoriteProfiles.filter((item) => item.id !== id);

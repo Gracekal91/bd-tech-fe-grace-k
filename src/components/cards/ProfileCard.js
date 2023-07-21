@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom';
 import {AddFavorite} from "../../services/api";
-import {CheckFavorite} from "../../utils/loggedInUser";
+import {CheckFavorite} from "../../utils/helper";
 import {useEffect, useState} from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
@@ -36,20 +36,13 @@ const ProfileCard = ({item}) => {
         } catch (error) {
             console.log("Error handling favorite:", error);
         }
-        
-/*        if (await handleFavorite() === 'LIKE') {
-            // Item is already a favorite, so remove it from favorites
-            //await RemoveFavorite(item?.id);
-            console.log('Already exist')
-        } else {
-            // Item is not a favorite, so add it to favorites
-            await AddFavorite(item?.id);
-        }*/
+
     };
 
     // Initial load to check the favorite status
     useEffect(() => {
         handleFavorite();
+        // eslint-disable-next-line
     }, []);
 
     return(
@@ -65,9 +58,9 @@ const ProfileCard = ({item}) => {
                     <p className="dwa-card-contents">
                         <span>{item?.age}, </span>
                         <span>{item?.city}</span>
-                        <span onClick={handleAddFavorite} className='profile-card-icon'>
+                        <span onClick={handleAddFavorite} className='profile-card-icon' >
                             {favoriteStatus === "LIKE" ? (
-                                <AiFillHeart style={{ color: "#fff"}} />
+                                <AiFillHeart style={{ color: "#fff"}}/>
                             ) : (<AiOutlineHeart />
                         )}
             </span>

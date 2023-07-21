@@ -5,7 +5,7 @@ import {GetFavorite} from "../services/api";
 
 export const GetFavoriteProfileData = async (favoritesData) => {
     try {
-        const response = await axios.get(`${config?.baseurl}/profiles`);
+        const response = await axios.get(`${config?.API_BASE_URL}/profiles`);
         const { data } = response;
         if(!data?.profiles) return []
         const { profiles } = await data;

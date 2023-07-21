@@ -2,9 +2,12 @@ import CardList from "../components/CardList";
 
 const Overview = () => {
     return (
-        <div className="dwa-container">
-            <CardList />
-        </div>
+        <>
+            <hr className='dwa-section-divider'/>
+            <div className="dwa-container">
+                <CardList />
+            </div>
+        </>
     )
 }
 
